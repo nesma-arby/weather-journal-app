@@ -7,12 +7,14 @@
 - [About the Project](#project)
 
 ## installation
-Run npm i 
+Run npm i to install dependensies (expressjs, cors, body-parser).
+require dependensies in server.js.
+
 
 ## How to run
 
-Run node server.js
-
+Run in terminal  node server.js
+in the browser write localhost:portnumber
 
 ## About the Project
 
