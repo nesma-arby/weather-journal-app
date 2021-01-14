@@ -70,6 +70,6 @@ function postAllData(request, response) {
   projectData["feelings"] = data.feelings;
   projectData["date"] = data.date;
 
-  request.send(projectData)
+  response.send(projectData)
 
 }
