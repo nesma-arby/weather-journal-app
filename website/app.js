@@ -3,8 +3,9 @@ let d = new Date();
 let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
 
 
-let baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
-let apiKey = '&appid=4a56e19759958027f46d52fb6cd5db31';
+const baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
+const apiKey = '&appid=4a56e19759958027f46d52fb6cd5db31&units=imperial';
+
 
 const date = document.getElementById('date');
 const temp = document.getElementById('temp');
@@ -41,14 +42,16 @@ function getWeatherAppData(e) {
 
 const getdata = async (baseURL, zip, apiKey) => {
 
+
+  console.log(baseURL + zip + apiKey)
   const response = await fetch(baseURL + zip + apiKey);
   const data = await response.json();
 
   if (data.cod != 200) {
     alert(`sorry ${data.message}`);
-    date.textContent = `Date :`
-    temp.textContent = `Temp:`
-    content.textContent = `Content: `
+    date.innerHTML = `Date :`
+    temp.innerHTML = `Temp:`
+    content.innerHTML = `Content: `
   } else {
 
     try {
@@ -89,12 +92,12 @@ const updateUI = async () => {
   const response = await fetch('/getRoute');
 
   try {
-    
+
     const allData = await response.json();
 
-    date.textContent = ` Date: ${allData.date}`;
-    temp.textContent = `Temp: ${allData.temp}`;
-    content.textContent = `Content: ${allData.feelings}`
+    date.innerHTML = ` Date: ${allData.date}`;
+    temp.innerHTML = `Temp: ${allData.temp}`;
+    content.innerHTML = `Content: ${allData.feelings}`
 
 
   } catch (error) {
